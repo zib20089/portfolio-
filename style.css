@@ -29,6 +29,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* Removes the default mobile/browser tap highlight box globally */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Removes focus outlines globally across all interactive elements */
+button, input, a, *:focus {
+    outline: none;
 }
 
 body, html {
@@ -209,8 +216,6 @@ body, html {
     border-radius: 50px;
     padding: 0.8rem 2.5rem;
     cursor: pointer;
-    width: 100%;
-    text-align: center;
     transition: transform 0.2s ease;
     display: flex;
     align-items: center;
@@ -280,7 +285,6 @@ body, html {
     background-color: #111;
 }
 
-/* Both Photos Stored Perfectly Over Each Other */
 .img-bottom, 
 .img-top-wrapper img {
     position: absolute;
@@ -297,7 +301,6 @@ body, html {
     z-index: 1;
 }
 
-/* Top Wrapper Masked via Clip-Path based on slider width */
 .img-top-wrapper {
     position: absolute;
     top: 0;
@@ -305,11 +308,10 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: 2;
-    clip-path: inset(0 50% 0 0); /* Default 50% split */
+    clip-path: inset(0 50% 0 0);
     will-change: clip-path;
 }
 
-/* Invisible Range Input Slider Layer for Drag/Move Control */
 .slider-range {
     position: absolute;
     -webkit-appearance: none;
@@ -338,7 +340,6 @@ body, html {
     border: none;
 }
 
-/* Visual Divider Handle Line */
 .slider-handle {
     position: absolute;
     top: 0;
@@ -362,14 +363,14 @@ body, html {
 }
 
 .social-dropdown-box {
-    display: none; /* Completely hidden until active */
+    display: none;
     background-color: var(--bg-top);
     padding: 0.7rem 1rem;
     border-radius: 12px;
     margin-top: 0.6rem;
     align-items: center;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif; /* Clean default system font */
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--primary-text);
     font-size: 0.9rem;
     width: 100%;
