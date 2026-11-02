@@ -1,0 +1,292 @@
+/* Font Face Declarations with Swap Performance */
+@font-face {
+    font-family: 'TahomaCustom';
+    src: url('../../../assets/fonts/tahoma.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TahomaCustom';
+    src: url('../../../assets/fonts/TAHOMABD.TTF') format('truetype');
+    font-weight: bold;
+    font-display: swap;
+}
+
+/* CSS Variables & Global Resets */
+:root {
+    --bg-primary: #661a1a;
+    --secondary-text: #f5e9d8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'TahomaCustom', sans-serif;
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Main Container Layout */
+.case-study-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 2rem;
+    gap: 3rem;
+}
+
+/* Top Video Frame Integration with Entrance Animation */
+.video-frame {
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 16 / 9;
+    background-color: var(--bg-primary);
+    border: 6px solid var(--secondary-text);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(14px 14px 20px rgba(0, 0, 0, 0.6));
+    animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+.video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* Content Sections Wrapper */
+.case-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.case-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 2px solid rgba(245, 233, 216, 0.2);
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    will-change: transform, opacity;
+}
+
+/* Stagger section animations */
+.case-content .case-section:nth-child(1) { animation-delay: 0.1s; }
+.case-content .case-section:nth-child(2) { animation-delay: 0.2s; }
+.case-content .case-section:nth-child(3) { animation-delay: 0.3s; }
+.case-content .case-section:nth-child(4) { animation-delay: 0.4s; }
+.case-content .case-section:nth-child(5) { animation-delay: 0.5s; }
+.case-content .case-section:nth-child(6) { animation-delay: 0.6s; }
+
+/* Center-aligned Headings in Pure White */
+.case-section h2 {
+    font-family: 'TahomaCustom', sans-serif;
+    font-weight: bold;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.case-section p {
+    font-family: 'TahomaCustom', sans-serif;
+    font-weight: normal;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: var(--secondary-text);
+    line-height: 1.6;
+}
+
+/* Sub-headings styling */
+.sub-heading {
+    font-family: 'TahomaCustom', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Image Layouts with Hover Scale Micro-interactions */
+.images-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.images-row img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--secondary-text);
+    filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.images-row img:hover {
+    transform: scale(1.03);
+}
+
+.image-single {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.image-single img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--secondary-text);
+    filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.image-single img:hover {
+    transform: scale(1.02);
+}
+
+/* Assets Dropdown Styling with Smooth Expand */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.dropdown-toggle {
+    font-family: 'TahomaCustom', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--bg-primary);
+    background-color: var(--secondary-text);
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 2.5rem;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    will-change: transform;
+}
+
+.dropdown-toggle:hover {
+    transform: scale(1.04);
+    opacity: 0.95;
+    box-shadow: 0 6px 20px rgba(245, 233, 216, 0.3);
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, margin-top 0.3s ease;
+    flex-wrap: wrap;
+}
+
+.dropdown-content.show {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 1.5rem;
+}
+
+/* Asset Item */
+.asset-item {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 12px;
+    border: 3px solid var(--secondary-text);
+    overflow: hidden;
+    filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.asset-item:hover {
+    transform: scale(1.04);
+}
+
+.asset-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Darker Grey Checkerboard Background for Transparency */
+.transparent-grid {
+    background-image: 
+        linear-gradient(45deg, #888888 25%, transparent 25%), 
+        linear-gradient(-45deg, #888888 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #888888 75%), 
+        linear-gradient(-45deg, transparent 75%, #888888 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #aaaaaa;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .case-study-container {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+    .case-section {
+        padding: 1.5rem;
+    }
+    .dropdown-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}

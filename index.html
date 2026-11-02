@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zohaib - Portfolio</title>
+    <!-- Performance Preloads -->
+    <link rel="preload" href="assets/zohaib.webm" as="video" type="video/webm">
+    <link rel="preload" href="assets/fonts/Atavian-REGULAR.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/fonts/tahoma.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Homepage Container -->
+    <main class="homepage-container">
+        <!-- Top Section (40%) with Video Integration -->
+        <header class="top-section">
+            <div class="video-container">
+                <video autoplay muted loop playsinline preload="auto" id="heroVideo">
+                    <source src="assets/zohaib.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </header>
+
+        <!-- Bottom Section (60%) -->
+        <section class="bottom-section">
+            <p class="tagline">
+                Creating thumbnails for Business,<br>
+                Tech, Education & Lifestyle creators
+            </p>
+
+            <nav class="nav-buttons">
+                <button class="nav-btn" id="portfolio-btn">Portfolio</button>
+                <button class="nav-btn" id="about-btn">About Me</button>
+                <button class="nav-btn" id="reach-btn">Reach Out</button>
+            </nav>
+        </section>
+    </main>
+
+    <!-- Modals Overlay Background -->
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <!-- 1. Portfolio Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-card">
+            <div class="modal-content-inner">
+                <button class="modal-option-btn" onclick="window.location.href='Portfolio/case-study/index.html'">Case Study</button>
+                <button class="modal-option-btn" onclick="window.location.href='Portfolio/work/index.html'">Work</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. About Me Modal -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-card about-card">
+            <div class="modal-content-inner">
+                <p class="about-text">
+                    Drawn to creators with something worth sharing.<br>
+                    Business, tech, education & lifestyle are where I do my best work.
+                </p>
+                <!-- Image Comparison Slider Container -->
+                <div class="img-comparer" id="imageComparer">
+                    <!-- Bottom Photo (Colored) -->
+                    <img src="assets/images/zib pfp-colored.webp" alt="Colored Profile Picture" class="img-bottom" loading="lazy" decoding="async">
+                    
+                    <!-- Top Photo Wrapper (Masked/Clipped dynamically via slider) -->
+                    <div class="img-top-wrapper" id="imageTopWrapper">
+                        <img src="assets/images/zib-pfp.webp" alt="Original Profile Picture" loading="lazy" decoding="async">
+                    </div>
+
+                    <!-- Interactive Range Slider -->
+                    <input type="range" min="0" max="100" value="50" class="slider-range" id="sliderRange" aria-label="Profile picture comparison slider">
+                    
+                    <!-- Visual Divider Line Handle -->
+                    <div class="slider-handle" id="sliderHandle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Reach Out Modal -->
+    <div class="modal" id="reachModal">
+        <div class="modal-card reach-card">
+            <div class="modal-content-inner social-stack">
+                <!-- 1. Discord (with popup copy mechanism) -->
+                <div class="social-dropdown-container">
+                    <button class="social-image-btn" id="discordToggleBtn">
+                        <img src="assets/icons/discord.webp" alt="Discord" loading="lazy" decoding="async">
+                    </button>
+                    <div class="social-dropdown-box" id="discordDropdown">
+                        <div class="dropdown-content">
+                            <span class="dropdown-label">username:</span>
+                            <span id="discordUsernameText">zib_4b</span>
+                        </div>
+                        <button id="copyDiscordBtn">Copy</button>
+                    </div>
+                </div>
+                
+                <!-- 2. Gmail (with popup copy mechanism) -->
+                <div class="social-dropdown-container">
+                    <button class="social-image-btn" id="emailToggleBtn">
+                        <img src="assets/icons/gmail.webp" alt="Gmail" loading="lazy" decoding="async">
+                    </button>
+                    <div class="social-dropdown-box" id="emailDropdown">
+                        <div class="dropdown-content">
+                            <span class="dropdown-label">email:</span>
+                            <span id="emailAddressText">zib.20089@gmail.com</span>
+                        </div>
+                        <button id="copyEmailBtn">Copy</button>
+                    </div>
+                </div>
+
+                <!-- 3. Instagram -->
+                <button class="social-image-btn social-link-btn" data-url="https://www.instagram.com/zib_4b?mdxt=eGR1eTVicmFhNDQ3">
+                    <img src="assets/icons/instagram.webp" alt="Instagram" loading="lazy" decoding="async">
+                </button>
+
+                <!-- 4. X -->
+                <button class="social-image-btn social-link-btn" data-url="https://x.com/zib_4B">
+                    <img src="assets/icons/X.webp" alt="X" loading="lazy" decoding="async">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

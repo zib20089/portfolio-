@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Atavian';
+    src: url('../../assets/fonts/Atavian-REGULAR.otf') format('opentype');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TahomaCustom';
+    src: url('../../assets/fonts/tahoma.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TahomaCustom';
+    src: url('../../assets/fonts/TAHOMABD.TTF') format('truetype');
+    font-weight: bold;
+    font-display: swap;
+}
+
+:root {
+    --bg-top: #f5e9d8;
+    --bg-bottom: #661a1a;
+    --primary-text: #661a1a;
+    --secondary-text: #f5e9d8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Atavian', sans-serif;
+    background-color: var(--bg-bottom);
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Main Vertically Centered Content Layout */
+.work-main {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 460px;
+    padding: 0 20px;
+    animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Sharp-Edged Uniform Navigation Buttons with Hover Glow */
+.work-btn {
+    font-family: 'Atavian', sans-serif;
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    color: var(--primary-text);
+    background-color: var(--secondary-text);
+    border: none;
+    border-radius: 0px;
+    padding: 1.1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    width: 100%;
+    will-change: transform;
+}
+
+.work-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    background-color: #ffffff;
+    box-shadow: 0 12px 35px rgba(245, 233, 216, 0.3);
+}
+
+/* Entrance Animation */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

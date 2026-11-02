@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zohaib - Case Study 2</title>
+    <!-- Performance Preloads -->
+    <link rel="preload" href="../../../assets/fonts/tahoma.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="case-study-container">
+        <!-- Top Video Integration -->
+        <div class="video-frame">
+            <video autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture oncontextmenu="return false;">
+                <source src="../c2.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="case-content">
+            <!-- 1. Quick Look at the Video -->
+            <section class="case-section">
+                <h2>1. Quick Look at the Video</h2>
+                <p><span class="sub-heading">Niche:</span><br>Tech education</p>
+                <p><span class="sub-heading">Description:</span><br>This video breaks down how ethical hacking works using real-world examples. It also shows people how to protect themselves from cyber attacks and wraps up with an overview of the creator's course.</p>
+                <p><span class="sub-heading">Aim of Video:</span><br>The goal here isn't just getting casual subscribers. It is to turn viewers into community members who buy the "Ethical Hacking for Beginners" course.</p>
+            </section>
+
+            <!-- 2. The goal -->
+            <section class="case-section">
+                <h2>2. The goal</h2>
+                <p><span class="sub-heading">Objective:</span><br>Basically, the goal is to make the thumbnail beginner friendly instead of adding details most people new to this topic wouldn't even know about. The thumbnail must be clear and understandable by a beginner audience while still being meaningful to an expert/professional, all while maintaining visual clarity.</p>
+            </section>
+
+            <!-- 3. Let's see what's working in this niche -->
+            <section class="case-section">
+                <h2>3. Let's see what's working in this niche</h2>
+                <p>So most of the thumbnails in this specific niche have either dark colored theme or green/matrix theme which matches the vibe of these types of topics. So after researching for a while I found several thumbnails that looked quite impressive but obviously picking randomly and making a thumbnail combining several styles that look good, almost never works. So i picked these few thumbnails to decide the theme:</p>
+                
+                <div class="images-grid-2x2-16-9">
+                    <img src="assets/inspo(1).webp" alt="Inspiration Thumbnail 1" loading="lazy" decoding="async">
+                    <img src="assets/inspo(2).webp" alt="Inspiration Thumbnail 2" loading="lazy" decoding="async">
+                    <img src="assets/inspo(3).webp" alt="Inspiration Thumbnail 3" loading="lazy" decoding="async">
+                    <img src="assets/inspo(4).webp" alt="Inspiration Thumbnail 4" loading="lazy" decoding="async">
+                </div>
+
+                <p>They all follow a bit more dark colored theme and more muted colors with text, or have Green as the dominant color.</p>
+            </section>
+
+            <!-- 4. Lets Build The thumbnail -->
+            <section class="case-section">
+                <h2>4. Lets Build The thumbnail</h2>
+                <p><span class="sub-heading">Main Subject:</span><br>The person in the image needs to be the main focus. Placing the main subject cleanly in the center immediately catches the viewer's eye before they even look at the extra details.</p>
+                <p><span class="sub-heading">UI Elements & Text:</span><br>The tracking boxes and digital data text are there to instantly show what the video is about (OSINT and tracking) without making things messy. Keeping the text styled like a computer terminal gets the message across fast.</p>
+                <p><span class="sub-heading">Background & Contrast:</span><br>Everything behind the person is kept dark. By pushing the background into the shadows, the bright green tracking lines and the subject naturally pop out on the screen.</p>
+
+                <div class="image-single">
+                    <img src="assets/thumbnail.webp" alt="Main Thumbnail Build" loading="lazy" decoding="async">
+                </div>
+            </section>
+
+            <!-- 5. A/B Testing (Revisions) -->
+            <section class="case-section">
+                <h2>5. A/B Testing (Revisions)</h2>
+                <p><span class="sub-heading">The Two Variants:</span><br>Before settling on the final look, I tested a couple of different layouts. One variant focused heavily on an entirely different angle with different data placements, while the other experimented with similar text and design themes while having a different color theme.</p>
+                
+                <div class="images-row">
+                    <img src="assets/variation-1.webp" alt="Variation 1" loading="lazy" decoding="async">
+                    <img src="assets/variation-2.webp" alt="Variation 2" loading="lazy" decoding="async">
+                </div>
+
+                <p><span class="sub-heading">Final pick:</span></p>
+                <div class="image-single">
+                    <img src="assets/thumbnail.webp" alt="Final Pick Thumbnail" loading="lazy" decoding="async">
+                </div>
+
+                <p><span class="sub-heading">Why choose this Version:</span><br>While both variants looked decent, they didn't hit the right balance of immediate clarity. The final version streamlined the data overlays and positioned the tracking elements so the viewer instantly understands the topic at a glance. By keeping the interface clean and the subject as the primary focal point, it outperformed the others in visual readability.</p>
+
+                <!-- Assets Dropdown Menu -->
+                <div class="dropdown-container">
+                    <button class="dropdown-toggle" id="assetsToggleBtn">Assets</button>
+                    <div class="dropdown-content" id="assetsDropdown">
+                        <a href="assets/extra-assets.webp" download="extra-assets.webp" class="asset-item transparent-grid" title="Click to download extra assets">
+                            <img src="assets/extra-assets.webp" alt="Extra Assets" loading="lazy" decoding="async">
+                        </a>
+                        <a href="assets/subject.webp" download="subject.webp" class="asset-item transparent-grid" title="Click to download subject asset">
+                            <img src="assets/subject.webp" alt="Subject Asset" loading="lazy" decoding="async">
+                        </a>
+                        <a href="assets/text.webp" download="text.webp" class="asset-item transparent-grid" title="Click to download text asset">
+                            <img src="assets/text.webp" alt="Text Asset" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('assetsToggleBtn').addEventListener('click', () => {
+            const dropdown = document.getElementById('assetsDropdown');
+            dropdown.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
