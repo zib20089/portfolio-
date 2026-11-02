@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Determine if we are inside a subfolder or root by checking path depth
     const isSubfolder = window.location.pathname.includes("/work/") && window.location.pathname.split("/").length > 3;
-    const imgPrefix = isSubfolder ? "webp/" : "work/webp/";
 
     thumbnailsData.forEach(item => {
         const card = document.createElement("div");
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
             <div class="thumb-img-wrapper">
-                <img src="${imagePath}" alt="${item.title}" loading="lazy" oncontextmenu="return false;">
+                <img src="${imagePath}" alt="${item.title}" loading="lazy" crossorigin="anonymous" oncontextmenu="return false;">
             </div>
             <p class="thumb-title">${item.title}</p>
         `;
@@ -63,13 +62,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("modalDownloadBtn").addEventListener("click", () => {
         if (!activeCardNode) return;
-        
+
+        // Generate a clean, unique filename based on the thumbnail title
+        const titleEl = activeCardNode.querySelector(".thumb-title");
+        const rawTitle = titleEl ? titleEl.innerText : "thumbnail";
+        const safeFilename = rawTitle
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, "-") // Replace special chars with hyphens
+            .replace(/-+/g, "-")         // Collapse multiple hyphens
+            .substring(0, 40);           // Limit length
+
         html2canvas(activeCardNode, {
             backgroundColor: null,
-            scale: 2
+            scale: 2,
+            useCORS: true,
+            allowTaint: true
         }).then(canvas => {
             const link = document.createElement("a");
-            link.download = "thumbnail-frame.png";
+            link.download = `${safeFilename}.png`;
             link.href = canvas.toDataURL("image/png");
             link.click();
         });

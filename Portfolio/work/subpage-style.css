@@ -225,3 +225,18 @@ body, html {
         transform: translateY(0);
     }
 }
+/* Remove default tap highlight on mobile devices */
+*, *::before, *::after {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove focus ring for mouse clicks, but KEEP IT for keyboard navigation */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Custom, clean focus ring for keyboard users (matched to your theme) */
+:focus-visible {
+    outline: 2px dashed #f5e9d8;
+    outline-offset: 4px;
+}
